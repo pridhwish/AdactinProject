@@ -1,12 +1,10 @@
 package com.maven.BaseClass;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -18,11 +16,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 public class BaseClass {
 /////////////===========  1.Browser Launch ==============//////////////
 public static WebDriver driver;
-
 public static WebDriver browserLaunch(String browser) {
 try {
 	if (browser.equalsIgnoreCase("chrome")) {
@@ -41,12 +37,10 @@ try {
 		System.out.println("Invalid Browser");
 	}
 } catch (Exception e) {
-	
-	e.printStackTrace();
+		e.printStackTrace();
 }
 driver.manage().window().maximize();
-return driver;
-	
+return driver;	
 }
 /////////////===========  2.get Url ==============//////////////
 public static void url(String value) {
@@ -61,8 +55,6 @@ public static void inputOfElement(WebElement element, String value) {
 /////////////===========  4.click ==============//////////////
 public static void clickOnElement(WebElement element) {
 element.click();
-
-
 }
 /////////////===========  5.Drop Down ==============//////////////
 public static void dropDown(WebElement element, String options,String value) {
@@ -98,8 +90,6 @@ driver.close();
 }
 public static void quitBrowser() { 
 driver.quit();
-
-
 }
 /////////////===========  8.alert ==============//////////////
  public static void altertAccept() {
@@ -114,8 +104,7 @@ public static void alertDismiss() {
 public static void promptAccept(String value) {
 	driver.switchTo().alert().sendKeys(value);
 	driver.switchTo().alert().accept();
-	}
-		
+	}		
 /////////////===========  9.Mouse Action ==============//////////////
 public static void mouseAction(String options, WebElement element, WebElement element1) {
 Actions ac = new Actions(driver);
@@ -143,9 +132,6 @@ try {
 	
 	e.printStackTrace();
 }
-
-
-	
 }
 /////////////===========  10.screenshot ==============//////////////-------not completed
 public static void screenshot(String path) throws IOException {
@@ -153,20 +139,16 @@ TakesScreenshot ts = (TakesScreenshot) driver;
 File srcFile = ts.getScreenshotAs(OutputType.FILE);
 File desFile = new File (path);
 FileUtils.copyFileToDirectory(srcFile, desFile);
-
-
 }
 
 /////////////===========  11.Navigate to ==============//////////////
 public static void navigateTo(String value) {
 driver.navigate().to(value);
-
 }
 /////////////===========  12.Navigate  back ==============//////////////
 public static void navigateBack(){
 driver.navigate().back();
 }
-
 /////////////===========  13.Navigate forward ==============//////////////
 public static void navigateForward(){
 driver.navigate().forward();
@@ -176,9 +158,6 @@ public static void navigateRefresh() {
 driver.navigate().refresh();
 
 }
-
-
-
 /////////////===========  16.clear ==============//////////////
 public static void clearOnElement(WebElement element) {
 element.clear();
@@ -197,7 +176,6 @@ public static void enable(WebElement element) {
 /////////////===========  19 Display  ==============//////////////
 public static void display(WebElement element) {
 element.isDisplayed();
-
 }
 
 /////////////===========  20 Selected  ==============//////////////
@@ -208,17 +186,12 @@ element.isSelected();
 /////////////===========  21 Current url  ==============//////////////
 public static void currentUrl() {
 	 String url = driver.getCurrentUrl();
-	System.out.println(url);
-	
-
-
+	System.out.println(url);	
 }
 //////////////========== 22 Title=====================///////////////
 public static void getTitle() {
 	 String title = driver.getTitle();
       System.out.println(title);
-
-
 }
 
 /////////////===========  23 text ==============//////////////
@@ -233,7 +206,6 @@ public static void options(WebElement element) {
     	System.out.println(s1.getText());
 		
 }
-
 }	
 /////////////===========  25 attributes ==============//////////////
 //public static void attributes(WebElement element) {
@@ -250,16 +222,12 @@ public static void rightClick(WebElement element) {
 /////////////===========  27 double click ==============//////////////
 public static void doubleClick(WebElement element) {
 	Actions ac = new Actions(driver);
-	ac.doubleClick(element).build().perform();
-	
-
+	ac.doubleClick(element).build().perform();	
 }
 /////////////===========  28 drag and drop ==============//////////////
 public static void dragAndDrop(WebElement source , WebElement target) {
 	Actions ac = new Actions(driver);
 	ac.dragAndDrop(source, target).build().perform();
-	
-
 }
 ////////////===========  29 move to element ==============//////////////
 public static void moveToElement(WebElement element) {
@@ -280,8 +248,6 @@ driver.switchTo().frame(element);
 public static void iFrames (WebElement element) {
 driver.switchTo().defaultContent();
 }
-
-
 /////////////===========  33robot ==============//////////////
 public static void robots(int KeyEvent) throws AWTException  {
 Robot r = new Robot();
